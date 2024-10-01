@@ -1,74 +1,27 @@
 .card {
-  container-type: inline-size;
+  @apply @container;
 }
 
 .cardContainer {
-  display: flex;
+  @apply flex flex-col @md:flex-row;
 }
 
-.imageContainer img {
-  width: 100%;
-  height: auto;
+.imageContainer {
+  @apply w-full @md:w-1/4;
+}
+
+.image {
+  @apply w-full h-auto rounded-tl-2xl rounded-tr-2xl @md:rounded-tr-none rounded-bl-none @md:rounded-bl-2xl;
 }
 
 .infoContainer {
-  padding-left: 16px;
-}
-
-/* Vertical layout */
-@container (max-width: 450px) {
-  .cardContainer {
-    flex-direction: column;
-  }
-
-  .imageContainer {
-    width: 100%;
-  }
-
-  .imageContainer img {
-    border-top-right-radius: 1rem;
-    border-top-left-radius: 1rem;
-  }
-
-  .infoContainer {
-    width: 100%;
-    border-bottom: 1px solid #666;
-    border-top: none;
-    border-left: 1px solid #666;
-    border-right: 1px solid #666;
-    border-bottom-right-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-  }
-}
-
-/* Horizontal layout */
-@container (min-width: 450px) {
-  .imageContainer {
-    width: 25%;
-  }
-
-  .imageContainer img {
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-  }
-
-  .infoContainer {
-    width: 75%;
-    border-bottom: 1px solid #666;
-    border-top: 1px solid #666;
-    border-right: 1px solid #666;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-  }
+  @apply w-full @md:w-3/4 pl-4 border-b-2 border-gray-400 rounded-br-2xl rounded-bl-2xl @md:rounded-bl-none border-l-2 @md:border-t-2 rounded-tr-none @md:rounded-tr-2xl border-r-2 @md:border-l-transparent;
 }
 
 .title {
-  font-size: 1.5rem;
-  margin: 1rem 0 0 0;
+  @apply text-2xl mt-4;
 }
 
 .price {
-  font-size: 1rem;
-  font-style: italic;
-  margin: 0 0 1rem 0;
+  @apply text-lg mb-4 italic;
 }
